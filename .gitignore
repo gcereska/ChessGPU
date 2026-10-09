@@ -1,0 +1,21 @@
+# Build output
+/build/
+/out/
+
+# External tools (downloaded, not tracked)
+/tools/
+
+# Profiler reports
+*.ncu-rep
+*.nsys-rep
+*.sqlite
+
+# Editors
+.vs/
+.vscode/
+*.user
+
+# Python (GUI)
+__pycache__/
+*.pyc
+.venv/

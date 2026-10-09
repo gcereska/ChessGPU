@@ -1,0 +1,10 @@
+# The GUI: python main.py (from the project venv). Tests: python -m pytest
+# from this folder (or from the repository root: python -m pytest gui).
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = [
+    "slow: deeper perft runs (select with -m slow)",
+]
+addopts = "-m \"not slow\""

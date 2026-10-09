@@ -1,0 +1,79 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Visual Studio 2026, x64, CUDA for the installed GPU",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build"
+    },
+    {
+      "name": "dev",
+      "displayName": "Reduced variants for quick iteration (build/dev): quad, thread model, terms and nnue",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/dev",
+      "cacheVariables": {
+        "CHESSGPU_BOARDS": "quad",
+        "CHESSGPU_MODELS": "thread",
+        "CHESSGPU_EVALS": "terms;nnue",
+        "CHESSGPU_ORDERINGS": "staged;list",
+        "CHESSGPU_STACKS": "local",
+        "CHESSGPU_FEATURES": "none;tt;tt-killers;tt-killers-see;tt-ext-killers-see",
+        "CHESSGPU_TT_LAYOUTS": "wide128",
+        "CHESSGPU_ATTACKS": "hq",
+        "CHESSGPU_SEARCH_ATTACKS": "hq",
+        "CHESSGPU_MOVES": "16"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "default",
+      "configuration": "Debug",
+      "jobs": 16
+    },
+    {
+      "name": "release",
+      "configurePreset": "default",
+      "configuration": "Release",
+      "jobs": 16
+    },
+    {
+      "name": "profile",
+      "configurePreset": "default",
+      "configuration": "Profile",
+      "jobs": 16
+    },
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "configuration": "Release",
+      "jobs": 16
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "default",
+      "configuration": "Debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "release",
+      "configurePreset": "default",
+      "configuration": "Release",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

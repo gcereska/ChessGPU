@@ -1,0 +1,4 @@
+# GUI runtime, installed into the project venv (.venv). See docs/GUI.md.
+PySide6-Essentials==6.11.2
+# The GUI's tests (gui/tests).
+pytest>=8
